@@ -5,6 +5,8 @@
 The app is hosted on Render:  
 🔗 **Endpoint**: `https://fluxkart-com.onrender.com/`
 
+The app demomstartion is posted on Google Drive:  
+🔗 **Drive Link**: `https://drive.google.com/file/d/12Yh2FUyyFxJR9-K3RCA8MjQcZVeg31gJ/view?usp=sharing`
 ### API Usage
 ```json
 POST /identify
