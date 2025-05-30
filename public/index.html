@@ -163,39 +163,39 @@
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
 
     <script>
-        // Shopping Cart System
+        //shopping Cart System
         let cart = [];
         
-        // Initialize when page loads
+        //initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
             loadCart();
             setupEventListeners();
             updateCartUI();
         });
 
-        // Load cart from localStorage
+        //load cart from localStorage
         function loadCart() {
             const savedCart = localStorage.getItem('fluxkart-cart');
             if (savedCart) cart = JSON.parse(savedCart);
         }
 
-        // Save cart to localStorage
+        //save cart to localStorage
         function saveCart() {
             localStorage.setItem('fluxkart-cart', JSON.stringify(cart));
         }
 
-        // Update cart UI
+        //update cart UI
         function updateCartUI() {
             const cartCounter = document.getElementById('cartCounter');
             const cartItems = document.getElementById('cartItems');
             const cartTotal = document.getElementById('cartTotal');
             
-            // Update counter
+            //update counter
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCounter.textContent = totalItems;
             cartCounter.classList.toggle('hidden', totalItems === 0);
             
-            // Update cart items
+            //update cart items
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p class="text-center text-gray-500 py-8">Your cart is empty</p>';
                 cartTotal.textContent = '$0.00';
@@ -217,11 +217,11 @@
                 </div>
             `).join('');
             
-            // Update total
+            //update total
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             cartTotal.textContent = `$${total.toFixed(2)}`;
             
-            // Add event listeners to remove buttons
+            //add event listeners to remove buttons
             document.querySelectorAll('.remove-item').forEach(button => {
                 button.addEventListener('click', function() {
                     removeFromCart(this.dataset.id);
@@ -229,7 +229,7 @@
             });
         }
 
-        // Add to cart
+        //add to cart
         function addToCart(product) {
             const existingItem = cart.find(item => item.id === product.id);
             
@@ -243,7 +243,7 @@
             updateCartUI();
             showCart();
             
-            // Show confirmation
+            //show confirmation
             const message = document.createElement('div');
             message.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg';
             message.textContent = `Added ${product.name} to cart!`;
@@ -254,14 +254,14 @@
             }, 3000);
         }
 
-        // Remove from cart
+        //remove from cart
         function removeFromCart(productId) {
             cart = cart.filter(item => item.id !== productId);
             saveCart();
             updateCartUI();
         }
 
-        // Show/hide cart
+        //show/hide cart
         function showCart() {
             document.getElementById('cartSidebar').classList.remove('translate-x-full');
             document.getElementById('cartOverlay').classList.remove('hidden');
@@ -272,9 +272,9 @@
             document.getElementById('cartOverlay').classList.add('hidden');
         }
 
-        // Event listeners
+        //event listeners
         function setupEventListeners() {
-            // Add to cart buttons
+            //add to cart buttons
             document.querySelectorAll('.add-to-cart').forEach(button => {
                 button.addEventListener('click', function() {
                     const product = {
@@ -287,17 +287,17 @@
                 });
             });
             
-            // Cart toggle
+            //cart toggle
             document.querySelector('a[href="#cart"]').addEventListener('click', function(e) {
                 e.preventDefault();
                 showCart();
             });
             
-            // Close cart
+            //close cart
             document.getElementById('closeCart').addEventListener('click', closeCart);
             document.getElementById('cartOverlay').addEventListener('click', closeCart);
             
-            // Admin panel toggle
+            //admin panel toggle
             document.getElementById('adminLink').addEventListener('click', function(e) {
                 e.preventDefault();
                 document.getElementById('adminPanel').style.display = 'flex';
@@ -307,7 +307,7 @@
                 document.getElementById('adminPanel').style.display = 'none';
             });
             
-            // Admin form submission
+            //admin form submission
             document.getElementById('identityForm').addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const email = document.getElementById('email').value.trim();
@@ -325,7 +325,7 @@
                     
                     const data = await response.json();
                     
-                    // Display results
+                    //display
                     document.getElementById('result').classList.remove('hidden');
                     document.getElementById('primaryId').textContent = data.contact.primaryContatctId;
                     document.getElementById('emails').textContent = data.contact.emails.join(', ') || 'None';
