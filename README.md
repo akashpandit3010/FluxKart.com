@@ -24,6 +24,7 @@ curl -X POST https://fluxkart.onrender.com/identify \
 ```
 
 The Admin Panel opens the Identity Reconciliation Form, where you can either enter a mobile number or any valid email (or else it will throw an error) and then one of following happens:
+
 1. If no matches: create new primary contact.
 
 2. If matches exist:
