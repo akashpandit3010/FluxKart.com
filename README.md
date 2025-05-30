@@ -29,8 +29,8 @@ The Admin Panel opens the Identity Reconciliation Form, where you can either ent
 
 2. If matches exist:
 
-  a. Find the oldest primary contact (will remain primary).
+      a. Find the oldest primary contact (will remain primary).
 
-  b. Link all other contacts to this primary.
+      b. Link all other contacts to this primary.
 
- c. Create new secondary contact if new information is provided.
+      c. Create new secondary contact if new information is provided.
