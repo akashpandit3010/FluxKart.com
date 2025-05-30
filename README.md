@@ -36,3 +36,9 @@ The Admin Panel opens the Identity Reconciliation Form, where you can either ent
       b. Link all other contacts to this primary.
 
       c. Create new secondary contact if new information is provided.
+
+Example:
+```bash
+ Email: xyz@gmail.com
+```
+This email has already many entries
